@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AcA-xf-CxQ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CoreML Vision Scanner-->
+        <scene sceneID="mTx-nN-Db6">
+            <objects>
+                <tableViewController id="Olt-CZ-fVc" customClass="MainViewController" customModule="VisionScannerDataDetector" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0dK-wd-dgO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="RH2-oT-Rmk">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DCD-Bn-GY8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="DCD-Bn-GY8" firstAttribute="top" secondItem="RH2-oT-Rmk" secondAttribute="top" id="POk-31-drE"/>
+                                <constraint firstItem="DCD-Bn-GY8" firstAttribute="leading" secondItem="RH2-oT-Rmk" secondAttribute="leading" id="Y2f-jc-j4N"/>
+                                <constraint firstAttribute="bottom" secondItem="DCD-Bn-GY8" secondAttribute="bottom" id="abh-pn-zDW"/>
+                                <constraint firstAttribute="trailing" secondItem="DCD-Bn-GY8" secondAttribute="trailing" id="ndH-MZ-GkW"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SegmentCell" rowHeight="64" id="vSZ-10-KAx" customClass="SegmentedTableViewCell" customModule="VisionScannerDataDetector" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="324" width="414" height="64"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vSZ-10-KAx" id="YpT-GC-Nyb">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-P6-kj2">
+                                            <rect key="frame" x="8" y="16.5" width="398" height="32"/>
+                                            <segments>
+                                                <segment title="OCR"/>
+                                                <segment title="URL"/>
+                                                <segment title="TEL"/>
+                                                <segment title="Date"/>
+                                                <segment title="Cat"/>
+                                                <segment title="Dog"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentChanged:" destination="vSZ-10-KAx" eventType="valueChanged" id="p8Q-Aj-rQ6"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="M5j-P6-kj2" firstAttribute="leading" secondItem="YpT-GC-Nyb" secondAttribute="leading" constant="8" id="6Q6-7c-qlq"/>
+                                        <constraint firstItem="M5j-P6-kj2" firstAttribute="top" secondItem="YpT-GC-Nyb" secondAttribute="top" constant="16.5" id="JHY-A5-qmf"/>
+                                        <constraint firstItem="M5j-P6-kj2" firstAttribute="centerY" secondItem="YpT-GC-Nyb" secondAttribute="centerY" id="Ngy-Ve-VzD"/>
+                                        <constraint firstAttribute="trailing" secondItem="M5j-P6-kj2" secondAttribute="trailing" constant="8" id="Sv6-wb-hX5"/>
+                                        <constraint firstAttribute="bottom" secondItem="M5j-P6-kj2" secondAttribute="bottom" constant="16.5" id="ohl-dn-pBP"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="segmentedControl" destination="M5j-P6-kj2" id="gQw-D0-vkd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Olt-CZ-fVc" id="6mj-0W-4QN"/>
+                            <outlet property="delegate" destination="Olt-CZ-fVc" id="FMX-R3-CuJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="CoreML Vision Scanner" id="RN1-5U-dSg">
+                        <barButtonItem key="rightBarButtonItem" title="Scan" id="VkJ-tj-1q3">
+                            <connections>
+                                <action selector="scanTapped:" destination="Olt-CZ-fVc" id="IkR-iZ-7ic"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="DCD-Bn-GY8" id="dVn-Xp-izg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rgS-ZW-KZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884.05797101449286" y="52.901785714285715"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Sy-ud-Rd5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AcA-xf-CxQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="20O-fW-H4W">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Olt-CZ-fVc" kind="relationship" relationship="rootViewController" id="PAl-Bb-KFg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqQ-AD-O9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26.086956521739133" y="52.901785714285715"/>
+        </scene>
+    </scenes>
+</document>
