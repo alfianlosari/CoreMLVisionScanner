@@ -95,9 +95,6 @@ class MainViewController: UITableViewController {
         return snapshot
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVision()
