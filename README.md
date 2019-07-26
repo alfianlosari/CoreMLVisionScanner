@@ -2,7 +2,8 @@
 
 ![Alt text](./promo.jpeg?raw=true "CoreML Vision")
 
-Building CoreML Vision Business Card Scanner & VCard Sharing iOS App.
+Building CoreML Vision Text Data & Animal Detector iOS App
+
 - Uses VNDocumentCameraViewController & VNDocumentCameraScan to take image and perform scan.
 - Uses VNRecognizeTextRequest for OCR.
 - Uses NSDataDetector to detect ocr, date, url, phone numbers.
